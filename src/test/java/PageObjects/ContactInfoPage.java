@@ -12,26 +12,22 @@ public class ContactInfoPage {
     private WebElement contactInformationHeader;
     @FindBy(xpath = "/html/body/div/div/section/div/form/div[2]/button[2]")
     private WebElement nextButton;
+
     // Cream o metoda Constructor care initializeaza elementele din pagina testata
-    public ContactInfoPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+    public ContactInfoPage(WebDriver driver) {PageFactory.initElements(driver, this);}
     // Cream o metoda care completeaza campul Phone
     public void fillPhoneField(String phone){this.phoneField.sendKeys(phone);}
 
-    // Cream o metoda care apasa butonul Next
-    public void clickOnNextButton() {
-        this.nextButton.click();
-    }
+    // Metoda care ne duce la butonul next
+    public WebElement getNextButton() {return this.nextButton;}
+    // Metoda care apasa butonul Next
+    public void clickOnNextButton() {this.nextButton.click();}
 
 
     // Cream o metoda care returneaza textul "Contact information"
-    public String getContactInformationHeader() {
-        return this.contactInformationHeader.getText();}
+    public String getContactInformationHeader() {return this.contactInformationHeader.getText();}
 
-    public WebElement getNextButton() {
-        return this.nextButton;
-    }
+
 
 
 

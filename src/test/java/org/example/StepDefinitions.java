@@ -19,7 +19,7 @@ public class StepDefinitions {
     private PersonalInfoPage personalInfoPage;
     private ContactInfoPage contactInfoPage;
 
-
+    // Cream o metoda Constructor
     public StepDefinitions() {
         //Mareste Browser-ul
         driver.manage().window().maximize();
@@ -36,19 +36,13 @@ public class StepDefinitions {
     }
 
     @When("I write the email address of {string}")
-    public void i_write_the_email_address_of(String string) {
-        mainPage.writeEmailToEmailField(string);
-    }
+    public void i_write_the_email_address_of(String string) {mainPage.writeEmailToEmailField(string);}
 
     @When("I click the submit button")
-    public void i_click_the_submit_button() {
-        mainPage.clickOnSubmitButton();
-    }
+    public void i_click_the_submit_button() {mainPage.clickOnSubmitButton();}
 
     @Then("the confirmation pop-up appears")
-    public void theConfirmationPopUpAppears() {
-        driver.switchTo().alert().accept();
-    }
+    public void theConfirmationPopUpAppears() {driver.switchTo().alert().accept();}
 
     // Scenariul 3
     @Given("I am on the personal information page")
@@ -57,17 +51,17 @@ public class StepDefinitions {
     }
 
     @When("I fill the first name field with numbers or special characters of {string}")
-    public void iFillFirstName(String string) {
-        personalInfoPage.fillFirstName(string);
-    }
+    public void iFillFirstName(String string) {personalInfoPage.fillFirstName(string);}
 
     @When("I click the next button")
     public void i_click_the_next_button() {
+        // Ne duce la butonul next
         Utils.scrollToElement(driver, personalInfoPage.getNextButton());
+        // Apasa butonul next
         personalInfoPage.clickOnNextButton();
     }
 
-        @Then("the system keeps me on the same page") // Intotdeauna scriem rezultatul asteptat, nu cel afisat
+    @Then("the system keeps me on the same page") // Intotdeauna scriem rezultatul asteptat, nu cel afisat
     public void theSystemKeepsMeOnTheSamePage() {
         Assert.assertEquals(personalInfoPage.getPersonalInformationHeader(), "Personal information");
     }
@@ -85,6 +79,7 @@ public class StepDefinitions {
     @Given("I am on the contact information page")
     public void iAmOnTheContactInfoPage() {
         driver.get("file:///C:/Users/MARIUS/Desktop/Descarcari%20GitHub/Testing-Env/routes/enrollment.html");
+        // Completez campurile din Personal information si apas next ca sa ne transfere pe pagina ContactInfo
         personalInfoPage.fillInPersonalInformation();
         Utils.scrollToElement(driver, personalInfoPage.getNextButton());
         personalInfoPage.clickOnNextButton();
@@ -97,6 +92,11 @@ public class StepDefinitions {
     public void iClickTheNextButtonFromContactInfoPage(){
         Utils.scrollToElement(driver, contactInfoPage.getNextButton());
         contactInfoPage.clickOnNextButton();}
+
+    @Then("the system keeps me on the contact information page")
+    public void the_system_keeps_me_on_the_contact_information_page() {
+        Assert.assertEquals(contactInfoPage.getContactInformationHeader(), "Contact information");}
+
 
 
     // Inchide Browser-ul cand se termina testarea. Se foloseste o singura data.

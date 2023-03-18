@@ -24,29 +24,26 @@ public class PersonalInfoPage {
     private WebElement nextButton;
 
     // Cream o metoda Constructor care initializeaza elementele din pagina testata
-    public PersonalInfoPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
-    // Cream o metoda care completeaza campurile First Name, Last Name e.t.c.
+    public PersonalInfoPage(WebDriver driver) {PageFactory.initElements(driver, this);}
+
+    // Cream metode care completeaza campurile First Name, Last Name e.t.c. pentru Scenariul 5
     public void fillFirstName(String firstName){this.firstNameField.sendKeys(firstName);}
     public void fillLastName (String lastName){this.lastNameField.sendKeys(lastName);}
     public void fillUsername (String username){this.usernameField.sendKeys(username);}
     public void fillPassword (String password){this.passwordField.sendKeys(password);}
     public void fillCpassword (String cPassword){this.cpasswordField.sendKeys(cPassword);}
 
-    // Cream o metoda care apasa butonul Next
-    public void clickOnNextButton() {
-        this.nextButton.click();
-    }
+    // Metoda care ne duce la butonul next
+    public WebElement getNextButton() {return this.nextButton;}
+    // Metoda care apasa butonul Next
+    public void clickOnNextButton() {this.nextButton.click();}
+
 
     // Cream o metoda care returneaza textul "Personal information"
-    public String getPersonalInformationHeader() {
-        return this.personalInformationHeader.getText();}
+    public String getPersonalInformationHeader() {return this.personalInformationHeader.getText();}
 
-    public WebElement getNextButton() {
-        return this.nextButton;
-    }
 
+    // Scenariul 5
     public void fillInPersonalInformation() {
         fillFirstName("Marius");
         fillLastName("Cristian");

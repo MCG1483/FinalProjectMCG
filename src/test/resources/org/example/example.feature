@@ -32,4 +32,5 @@ Feature: An example
       Given I am on the contact information page
       When I fill the phone field with letters of "abcdefgh"
       And I click the next button from contact info page
-      Then the system keeps me on the same page
+      Then the system keeps me on the contact information page
+
