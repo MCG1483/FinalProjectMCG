@@ -33,7 +33,7 @@ public class PersonalInfoPage {
     public void fillPassword (String password){this.passwordField.sendKeys(password);}
     public void fillCpassword (String cPassword){this.cpasswordField.sendKeys(cPassword);}
 
-    // Metoda care ne duce la butonul next
+    // Metoda care returneaza elementul web "Butonul Next"
     public WebElement getNextButton() {return this.nextButton;}
     // Metoda care apasa butonul Next
     public void clickOnNextButton() {this.nextButton.click();}
