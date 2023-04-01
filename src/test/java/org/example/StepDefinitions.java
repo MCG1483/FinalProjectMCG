@@ -54,6 +54,14 @@ public class StepDefinitions {
     @Then("the confirmation pop-up appears")
     public void theConfirmationPopUpAppears() {driver.switchTo().alert().accept();}
 
+    @Then("the subscription fails and a red border appears")
+    public void theSubscriptionFailsAndRedBorderAppears ()
+    {
+        Utils.waitForElementToLoad(1);
+        Assert.assertTrue(driver.getPageSource().contains("error"));
+    }
+
+
     // Scenariul 3
     @Given("I am on the personal information page")
     public void PersonalInfoPage() {
@@ -112,7 +120,7 @@ public class StepDefinitions {
     @Then("the system keeps me on the contact information page")
     public void theSystemKeepsMeOnTheContactInfopage() {
         Utils.waitForElementToLoad(2);
-        Assert.assertEquals(courseOptionsPage.getCourseOptionsHeader(), "Course options");}
+        Assert.assertEquals(contactInfoPage.getContactInformationHeader(), "Contact information");}
 
     // Scenariul 6
     @When("I click the Read More button from Virtual section")
@@ -168,11 +176,10 @@ public class StepDefinitions {
      public void iClickLearnSeleniumReadMoreButton  () {
              Utils.scrollToElement(driver, mainPage.getLearnSeleniumHeader());
         mainPage.clickSeleniumReadMoreButton(); }
-    @Then("a new page will open")
-    public void aNewPageWillOpens() {
+    @Then("a new page will open with fundamentals page header")
+    public void aNewPageWillOpensWithFundamentalsPageHeader() {
         Utils.waitForElementToLoad(2);
-        Assert.assertEquals(fundamentalsPage.getFundamentalsHeader(),
-            "Fundamentals page");}
+        Assert.assertEquals(fundamentalsPage.getFundamentalsHeader(),"Fundamentals page");}
 
 
 

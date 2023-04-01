@@ -16,6 +16,7 @@ Feature: An example
     Given I am on the main page
     When I write the email address of "test.tester.ro"
     And I click the submit button
+    Then the subscription fails and a red border appears
 
   Scenario: #3 Positive
     Given I am on the personal information page
@@ -28,7 +29,7 @@ Feature: An example
       When I click the Questions button
       Then the page goes down to the FAQ section
 
-  Scenario: #5 Negative
+  Scenario: #5 Pozitiv + Bug
       Given I am on the contact information page
       When I fill the email field of "mariusghe14@yahoo.com"
       And I fill the phone field with letters of "abcdef"
@@ -62,5 +63,5 @@ Feature: An example
   Scenario: #10 Positive
     Given I am on the main page
     When I click the Read More button from Learn Selenium section
-    Then a new page will open
+    Then a new page will open with fundamentals page header
 
